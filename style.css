@@ -1,0 +1,695 @@
+/*
+Theme Name: Elins Theme
+Author: Daniel Brobäck
+Author URI: danielbroback.eu
+Description: A theme made for Elins Glada Ekologiska Kor. 
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: elin
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+/*------------------------------------------------------------------
+[Table of contents]
+
+[0. WordPress Core]
+[1. Global]
+[2. Menues]
+[3. .Main]
+[4. Page.php]
+[5. 404.php]
+[6. .footer]
+[7. Media queries]
+[[7.1 >1080px]]
+[[7.2 450-1080px]
+[[7.3 <900 ]]
+
+------------------------------------------------------------------*/
+/* 0. WordPress Core */
+.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+.aligncenter,
+div.aligncenter {
+    display: block;
+    margin: 5px auto 5px auto;
+}
+
+.alignright {
+    float:right;
+    margin: 5px 0 20px 20px;
+}
+
+.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+
+a img.alignright {
+    float: right;
+    margin: 5px 0 20px 20px;
+}
+
+a img.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+a img.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+
+a img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wp-caption {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    max-width: 96%; /* Image does not overflow the content area */
+    padding: 5px 3px 10px;
+    text-align: center;
+}
+
+.wp-caption.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignleft {
+    margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignright {
+    margin: 5px 0 20px 20px;
+}
+
+.wp-caption img {
+    border: 0 none;
+    height: auto;
+    margin: 0;
+    max-width: 98.5%;
+    padding: 0;
+    width: auto;
+}
+
+.wp-caption p.wp-caption-text {
+    font-size: 11px;
+    line-height: 17px;
+    margin: 0;
+    padding: 0 4px 5px;
+}
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+.screen-reader-text:focus {
+	background-color: #eee;
+	clip: auto !important;
+	clip-path: none;
+	color: #444;
+	display: block;
+	font-size: 1em;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000;
+	/* Above WP toolbar. */
+}
+/* 1. Global */
+
+@font-face {
+    font-family: paraFont;
+    src: url(assets/fonts/Roboto-Regular.ttf);
+}
+@font-face {
+    font-family: logo;
+    src: url(assets/fonts/ComicNeue-Bold.ttf);
+}
+
+@font-face {
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style : normal;
+           src : url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.eot?v=4.3.0");
+           src : url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.eot?#iefix&v=4.3.0") format("embedded-opentype"),
+                 url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.woff2?v=4.3.0") format("woff2"),
+                 url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.woff?v=4.3.0") format("woff"),
+                 url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.ttf?v=4.3.0") format("truetype"),
+                 url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular") format("svg");
+    }
+
+:root {
+    --boxes: #BC6C25;
+    --h: #547331;
+    --underline: #DDA15E;
+    --bg: #FEFAE0;
+    --gold: #D4AF37;
+
+}
+html{
+    width: 100%;
+}
+body{
+    background-color: var(--bg);
+    font-family: paraFont;
+    width: 100%;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    color: var(--bg);
+    text-decoration: none;
+}
+a:visited {
+    color: var(--bg);
+    text-decoration: none;
+}
+#takemehome{
+    color:  var(--gold);
+    font-size: 18px;
+}
+
+.front {
+    font-family: headerFont;
+    font-size: 4vh;
+    padding-top: 2vh;
+}
+#top a{
+	color: black;
+}
+
+/* 2. Menues */
+    .masterhead{
+        background-color: var(--h);
+        color: var(--bg);
+        height: 120px;
+        width: 100%;
+        text-align: center;
+        font-family: logo;
+        text-shadow: 0px 1px 2px rgba(149, 150, 150, 1);
+}
+.boxes{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.borderBox{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 30vh;
+    max-width: 80vw;
+    margin-bottom: 7vh;
+    overflow: hidden;
+    color: var(--bg);
+    -webkit-box-shadow: 4px 5px 36px -4px rgba(0,0,0,0.63);
+    -moz-box-shadow: 4px 5px 36px -4px rgba(0,0,0,0.63);
+    box-shadow: 4px 5px 36px -4px rgba(0,0,0,0.63);
+}
+#borderBoxOne{
+    background-image: url(assets/images/lamb.jpg);
+}
+#borderBoxTwo{
+    background-image: url(assets/images/cowMist.jpg);
+}
+#borderBoxThree{
+    background-image: url(assets/images/CowClose.jpg);
+}
+#borderBoxFour{
+    background-image: url(assets/images/cowMilk.jpg);
+}
+.textBox {
+    text-transform: uppercase;
+}
+
+.textBox h2{
+    font-size: 2.5vh;
+}
+.textBox h3{
+    font-size: 2vh;
+    padding-top: 2vh;
+}
+.textBox h4{
+    font-size: 1vh;
+    text-decoration: underline;
+}
+/* 3. Main */
+.main{
+    width: 100%;
+    max-height: 60vh;
+}
+#front-img{
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.frontImg1{
+    width: 100%;
+    background-image: url(assets/images/mjolk.jpg);
+        background-repeat: no-repeat;
+        background-position:center;
+        background-size: cover;
+}
+.frontImg2{
+    display: none;
+}
+.frontImg3{
+    display: none;
+}
+.underline{
+    width: 84vw;
+    border-bottom: 2px solid var(--underline);
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+    margin-left: 8vw;
+    margin-right: 8vw;
+}
+#frontText{
+    width: 80vw;
+    margin-left: 7vw;
+    margin-right: 7vw;
+    text-align: center;
+}
+#frontText p{
+    margin-top: 1vh;
+}
+#frontText a{
+    color: var(--gold);
+}
+#frontText h2{
+    margin-top: 3vh;
+}
+
+#frontText h4{
+    margin-top: 4vh;
+}
+    
+.borderBox:hover{
+    opacity: 0.9;
+}
+.textBox{
+    background-color: var(--boxes);
+    height: 15vh;
+    width: 80vw;
+    margin-top: 17vh;
+    padding-left: 5vw;
+    margin-bottom: 0px
+}
+
+.textBox > a > h4 > span::after{
+    content: "\2192";
+    text-decoration: none;
+    
+}
+/* 4. page.php*/
+#content{
+    margin-left: 7vw;
+    margin-right: 7vw; 
+}
+#content #top {
+    width: auto;
+}
+#content #top h1{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+    
+#top h3{
+    margin-top: 3vh;
+    margin-bottom: 2vh;
+}
+#top p{
+    margin-bottom: 2vh;
+}
+#top .underline{
+    width: 100%;
+    margin-top: 2vh;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* 5. 404 */
+
+#fourOFour{
+    text-align: center;
+}
+#fourOFour h1 {
+    margin-top: 10vh;
+   margin-bottom: 10vh;
+}
+#fourOFour > h2{
+margin-top: 4vh;
+margin-bottom: 4vh;
+font-style: italic;
+}
+
+#fourOFour > img {
+    width: 200px !important;
+}
+
+
+/* 6. .footer*/
+.footer {
+color: var(--bg);
+text-align: center;
+font-size: 2vh;
+font-weight: bold;
+background-color: var(--h);
+width: 100%;
+}
+.footer #social {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+footer #brands {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: baseline;
+}
+#facebook {
+    height: 40px;
+    width: 40px;
+    margin: 4vw;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+#Instagram {
+    height: 40px;
+    width: 40px;
+    margin: 4vw;
+}
+#maps {
+    height: 40px;
+    width: 40px;
+    margin: 4vw;
+}
+#krav {
+    height: 40px;
+    width: 40px;
+    margin: 4vw;
+    
+}
+#euStod {
+    height: 40px;
+    width: 40px;
+    margin: 4vw;
+   
+}
+.credit{
+    font-size: 12px;
+    opacity: 0.6;
+    padding-top: 1.5vh;
+}
+/* 7. Media queries */
+/* 7.1 >1200px */
+@media screen and (min-width: 1080px){
+
+    #front-img{
+        height: 80vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+    }
+    .frontImg1{
+        display: block;
+        width: 33%;
+        height: auto;
+        background-image: url(assets/images/cowcow.jpeg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    .frontImg2{
+        display: block;
+        width: 33%;
+        background-image: url(assets/images/mjolk.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    .frontImg3{
+        display: block;
+        width: 33%;
+        background-image: url(assets/images/cowEyes.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    .textBox h3{
+        font-size: 2vh;
+        font-weight: bold;
+        margin-bottom: 0,5rem;
+        margin-top: 1rem;
+    }
+    .textBox h2{
+        font-size: 1.5vh;  
+    }
+    .textBox h4{
+        font-size: 1.5vh;  
+    }
+    .textBox{
+        padding-left: 1vw;
+    }
+
+    nav{
+        padding-top: 20px;
+        text-transform: uppercase;
+    }
+    nav h1{
+        font-size: 2h;
+        font-family: logo;
+    }
+   
+    .menu-item {
+        padding-top: 10px;
+        font-size: 1.7vh;
+        font-weight: 600;
+        font-family: paraFont;
+    }
+    .menu-item > a:hover{
+        color: var(--gold); 
+        
+    }
+    .menu-main-container ul{
+        display: flex;
+        justify-content: space-around;
+    }
+    .menu-main-container ul li{
+        list-style-type: none;
+        width: 100%;
+    }
+    .menu-main-container ul ul{
+        display: none;
+        position: relative;
+        left: 0;
+        z-index: 99999;
+        width: 100%;
+        background: var(--h);
+        border-radius: 0px 0px 40px 40px;
+        border-bottom: 2px solid var(--h);
+    }
+    .menu-main-container > ul > li{
+        margin-bottom:10vh;
+    }
+     .menu-main-container ul li:hover > ul{
+         display: block;
+         border-bottom: 5px solid var(--h);
+     }
+     .menu-main-container ul ul li{
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        font-size: 1.7vh;
+        text-align: left;
+        padding-left: 1vw;
+     }
+     .menu-main-container > ul > ul > li{
+         padding-top: 7vh;
+         width: 100%;
+ }
+ .menu-item-has-children > a::after {
+    padding-left: 10px;
+    font-family: FontAwesome;
+    content: "\f107";
+    
+}
+.boxes {
+    width: 100%;
+    justify-content: space-evenly;
+}
+.borderBox{ 
+    max-width: 20vw;
+}
+}
+/* 6.7 450- 1080px */
+
+@media screen and (min-width: 450px)and (max-width:1080px){
+    .frontImg1{
+        display: block;
+        width: 33%;
+        height: auto;
+        background-image: url(assets/images/cowcow.jpeg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    .frontImg2{
+        display: block;
+        width: 33%;
+        background-image: url(assets/images/mjolk.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    .frontImg3{
+        display: block;
+        width: 33%;
+        background-image: url(assets/images/cowEyes.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    nav{
+        padding-top: 20px;
+        text-transform: uppercase;
+    }
+    nav h1{
+        font-size: 3vh;
+    }
+    .menu-item {
+        font-family: paraFont;
+        font-size: 1.5vh;
+    }
+    .menu-item > a:hover{
+        color: var(--gold); 
+       
+    }
+    /*.menu-item-has-children > a::after {
+        padding-left: 10px;
+        font-family: FontAwesome;
+        content: "\f13a"; 
+    }*/
+    .menu-main-container ul{
+        display: flex;
+        justify-content: space-around;
+    } 
+    .menu-main-container ul li{
+        list-style-type: none;
+        width: 100%;
+    }  
+    .menu-main-container ul ul{
+        display: none;
+        position: relative;
+        z-index: 99999;
+        width: 100%;
+        background: var(--h);
+        padding-top: 2vh;
+        border-radius: 0px 0px 40px 40px;
+        border-bottom: 2px solid var(--h);
+    }
+    .menu-main-container > ul > li{
+        margin-bottom:10vh;
+    }
+     .menu-main-container ul li:hover > ul{
+         display: block
+     }
+     .menu-main-container ul ul li{
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        font-size: 1.5vh;
+        text-align: left;
+        padding-left: 1vw;
+     }
+     .menu-main-container > ul > ul > li{
+         padding-top: 10vh;
+     }
+    
+    .boxes{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        width: 100%;
+        overflow: hidden;
+        color: var(--bg);  
+    }
+    .boxes > .borderBox{
+        background-image: url(assets/images/cowSmall.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        height: 30vh;
+        max-width: 40vw;
+        margin-bottom: 7vh;
+        overflow: hidden;
+    }
+    .textBox{
+        padding-left: 2vw !important;
+    }
+    nav{
+    width: 100%;
+    }
+    .textBox h3{
+    font-size: 1.5vh;
+    font-weight: bold;
+    margin-bottom: 0,5rem;
+    margin-top: 1rem;
+}
+.textBox h2{
+    font-size: 2vh;
+}
+.textBox h4{
+    font-size: 2vh;
+}
+.textBox{
+    padding-left: 1vw;
+}
+}
+
+/* 7.3 900px */
+
+@media screen and (max-width: 450px){
+    .menu-main-container{
+        display: none;
+    }
+    #front-img{
+        height: 80vh;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+nav > h1 {
+    font-size: 6vh;
+}
+.masterhead {
+    padding-top: 50px;
+    height: 100px;
+}
+}
